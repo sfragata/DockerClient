@@ -1,12 +1,12 @@
 /**
  * 
  */
-package com.sfragata.docker.client.test;
+package com.github.sfragata.docker.client.test;
 
 import org.junit.Test;
 
-import com.sfragata.docker.client.DockerClient;
-import com.sfragata.docker.client.DockerClientImpl;
+import com.github.sfragata.docker.client.DockerClient;
+import com.github.sfragata.docker.client.DockerClientImpl;
 
 /**
  * @author sfragata

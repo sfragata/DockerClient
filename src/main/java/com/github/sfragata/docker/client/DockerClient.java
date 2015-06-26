@@ -1,12 +1,12 @@
-package com.sfragata.docker.client;
+package com.github.sfragata.docker.client;
 
 import java.util.List;
 
-import com.sfragata.docker.client.message.Container;
-import com.sfragata.docker.client.message.Image;
-import com.sfragata.docker.client.message.MetaData;
-import com.sfragata.docker.client.message.ProcessResult;
-import com.sfragata.docker.client.message.Version;
+import com.github.sfragata.docker.client.message.Container;
+import com.github.sfragata.docker.client.message.Image;
+import com.github.sfragata.docker.client.message.MetaData;
+import com.github.sfragata.docker.client.message.ProcessResult;
+import com.github.sfragata.docker.client.message.Version;
 
 /**
  * @author sfragata

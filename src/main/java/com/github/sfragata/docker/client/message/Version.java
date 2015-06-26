@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.sfragata.docker.client.message;
+package com.github.sfragata.docker.client.message;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

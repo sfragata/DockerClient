@@ -1,4 +1,4 @@
-package com.sfragata.docker.client.message;
+package com.github.sfragata.docker.client.message;
 
 import java.util.List;
 
