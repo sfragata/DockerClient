@@ -52,4 +52,14 @@ public class DockerClientTest {
 		System.out.println(dockerClient.restart("fe63665f7277"));
 	}
 
+	@Test
+	public void testInspectContainer() {
+		System.out.println(dockerClient.inspect("fe63665f7277"));
+	}
+
+	@Test
+	public void testTopContainer() {
+		System.out.println(dockerClient.top("fe63665f7277"));
+	}
+
 }
