@@ -14,6 +14,7 @@
 		<junit-version>4.12</junit-version>
 		<httpclient-version>4.5</httpclient-version>
 		<commons-lang3-version>3.3.2</commons-lang3-version>
+		<unixsocket-version>0.4</unixsocket-version>
 	</properties>
 
 	<build>
@@ -105,7 +106,7 @@
 		<dependency>
 			<groupId>com.github.jnr</groupId>
 			<artifactId>jnr-unixsocket</artifactId>
-			<version>0.4</version>
+			<version>${unixsocket-version}</version>
 		</dependency>
 
 		<dependency>
