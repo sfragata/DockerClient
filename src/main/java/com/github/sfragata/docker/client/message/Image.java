@@ -1,10 +1,11 @@
 /**
- * 
+ *
  */
 package com.github.sfragata.docker.client.message;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
@@ -12,138 +13,197 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  *
  */
 /*
- * 
- * [{"Created":1433972330, "Id":
- * "95f2ff8d98da834daa988dc6b5e498fd73a4c4a8da3a56d95d6abc7670a7cdd5",
- * "ParentId"
+ * [{"Created":1433972330, "Id": "95f2ff8d98da834daa988dc6b5e498fd73a4c4a8da3a56d95d6abc7670a7cdd5", "ParentId"
  * :"81b5152b18b3a3c9427e8adf144dc985fea9720ec3feffb8a9291ce6a1f65444",
  * "RepoTags":["timhaak/plex:latest"],"Size":0,"VirtualSize":660356148}]
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Image {
-	@JsonProperty("Created")
-	private String created;
-	@JsonProperty("Id")
-	private String id;
-	@JsonProperty("ParentId")
-	private String parentId;
-	@JsonProperty("RepoTags")
-	private List<String> repoTags;
-	@JsonProperty("Size")
-	private Long size;
-	@JsonProperty("VirtualSize")
-	private Long virtualSize;
+    @JsonProperty("Created")
+    private String created;
 
-	public String getCreated() {
-		return created;
-	}
+    @JsonProperty("Id")
+    private String id;
 
-	public void setCreated(String created) {
-		this.created = created;
-	}
+    @JsonProperty("ParentId")
+    private String parentId;
 
-	public String getId() {
-		return id;
-	}
+    @JsonProperty("RepoTags")
+    private List<String> repoTags;
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    @JsonProperty("Size")
+    private Long size;
 
-	public String getParentId() {
-		return parentId;
-	}
+    @JsonProperty("VirtualSize")
+    private Long virtualSize;
 
-	public void setParentId(String parentId) {
-		this.parentId = parentId;
-	}
+    @JsonProperty("RepoDigests")
+    private List<String> repoDigests;
 
-	public List<String> getRepoTags() {
-		return repoTags;
-	}
+    public String getCreated() {
 
-	public void setRepoTags(List<String> repoTags) {
-		this.repoTags = repoTags;
-	}
+        return this.created;
+    }
 
-	public Long getSize() {
-		return size;
-	}
+    public void setCreated(
+        final String created) {
 
-	public void setSize(Long size) {
-		this.size = size;
-	}
+        this.created = created;
+    }
 
-	public Long getVirtualSize() {
-		return virtualSize;
-	}
+    public String getId() {
 
-	public void setVirtualSize(Long virtualSize) {
-		this.virtualSize = virtualSize;
-	}
+        return this.id;
+    }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((created == null) ? 0 : created.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result
-				+ ((parentId == null) ? 0 : parentId.hashCode());
-		result = prime * result
-				+ ((repoTags == null) ? 0 : repoTags.hashCode());
-		result = prime * result + ((size == null) ? 0 : size.hashCode());
-		result = prime * result
-				+ ((virtualSize == null) ? 0 : virtualSize.hashCode());
-		return result;
-	}
+    public void setId(
+        final String id) {
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Image other = (Image) obj;
-		if (created == null) {
-			if (other.created != null)
-				return false;
-		} else if (!created.equals(other.created))
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (parentId == null) {
-			if (other.parentId != null)
-				return false;
-		} else if (!parentId.equals(other.parentId))
-			return false;
-		if (repoTags == null) {
-			if (other.repoTags != null)
-				return false;
-		} else if (!repoTags.equals(other.repoTags))
-			return false;
-		if (size == null) {
-			if (other.size != null)
-				return false;
-		} else if (!size.equals(other.size))
-			return false;
-		if (virtualSize == null) {
-			if (other.virtualSize != null)
-				return false;
-		} else if (!virtualSize.equals(other.virtualSize))
-			return false;
-		return true;
-	}
+        this.id = id;
+    }
 
-	@Override
-	public String toString() {
-		return String
-				.format("Image [created=%s, id=%s, parentId=%s, repoTags=%s, size=%s, virtualSize=%s]",
-						created, id, parentId, repoTags, size, virtualSize);
-	}
+    public String getParentId() {
+
+        return this.parentId;
+    }
+
+    public void setParentId(
+        final String parentId) {
+
+        this.parentId = parentId;
+    }
+
+    public List<String> getRepoTags() {
+
+        return this.repoTags;
+    }
+
+    public void setRepoTags(
+        final List<String> repoTags) {
+
+        this.repoTags = repoTags;
+    }
+
+    public Long getSize() {
+
+        return this.size;
+    }
+
+    public void setSize(
+        final Long size) {
+
+        this.size = size;
+    }
+
+    public Long getVirtualSize() {
+
+        return this.virtualSize;
+    }
+
+    public void setVirtualSize(
+        final Long virtualSize) {
+
+        this.virtualSize = virtualSize;
+    }
+
+    public List<String> getRepoDigests() {
+
+        return this.repoDigests;
+    }
+
+    public void setRepoDigests(
+        final List<String> repoDigests) {
+
+        this.repoDigests = repoDigests;
+    }
+
+    @Override
+    public int hashCode() {
+
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (this.created == null ? 0 : this.created.hashCode());
+        result = prime * result + (this.id == null ? 0 : this.id.hashCode());
+        result = prime * result + (this.parentId == null ? 0 : this.parentId.hashCode());
+        result = prime * result + (this.repoDigests == null ? 0 : this.repoDigests.hashCode());
+        result = prime * result + (this.repoTags == null ? 0 : this.repoTags.hashCode());
+        result = prime * result + (this.size == null ? 0 : this.size.hashCode());
+        result = prime * result + (this.virtualSize == null ? 0 : this.virtualSize.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(
+        final Object obj) {
+
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Image other = (Image) obj;
+        if (this.created == null) {
+            if (other.created != null) {
+                return false;
+            }
+        } else if (!this.created.equals(other.created)) {
+            return false;
+        }
+        if (this.id == null) {
+            if (other.id != null) {
+                return false;
+            }
+        } else if (!this.id.equals(other.id)) {
+            return false;
+        }
+        if (this.parentId == null) {
+            if (other.parentId != null) {
+                return false;
+            }
+        } else if (!this.parentId.equals(other.parentId)) {
+            return false;
+        }
+        if (this.repoDigests == null) {
+            if (other.repoDigests != null) {
+                return false;
+            }
+        } else if (!this.repoDigests.equals(other.repoDigests)) {
+            return false;
+        }
+        if (this.repoTags == null) {
+            if (other.repoTags != null) {
+                return false;
+            }
+        } else if (!this.repoTags.equals(other.repoTags)) {
+            return false;
+        }
+        if (this.size == null) {
+            if (other.size != null) {
+                return false;
+            }
+        } else if (!this.size.equals(other.size)) {
+            return false;
+        }
+        if (this.virtualSize == null) {
+            if (other.virtualSize != null) {
+                return false;
+            }
+        } else if (!this.virtualSize.equals(other.virtualSize)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+
+        return String.format(
+            "Image [created=%s, id=%s, parentId=%s, repoTags=%s, size=%s, virtualSize=%s, repoDigests=%s]",
+            this.created, this.id, this.parentId, this.repoTags, this.size, this.virtualSize, this.repoDigests);
+    }
 
 }
