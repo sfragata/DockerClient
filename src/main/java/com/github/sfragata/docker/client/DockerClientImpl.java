@@ -10,6 +10,7 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Invocation;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -52,6 +53,14 @@ public class DockerClientImpl
     private final Client webClient;
 
     private static final ClientConfig DEFAULT_CONFIG = new ClientConfig(JacksonFeature.class);
+
+    private static final GenericType<List<Container>> CONTAINER_LIST_TYPE = new GenericType<List<Container>>() {
+        // do nothing
+    };
+
+    private static final GenericType<List<Image>> IMAGE_LIST_TYPE = new GenericType<List<Image>>() {
+        // do nothing
+    };
 
     private enum Path {
         RESTART, STOP, START, JSON, CONTAINERS, VERSION, _PING, IMAGES, TOP;
@@ -136,6 +145,17 @@ public class DockerClientImpl
         return response.readEntity(clazz);
     }
 
+    private <T> T request(
+        final WebTarget target,
+        final HttpMethod method,
+        final GenericType<T> genericType,
+        final MediaType mediaType) {
+
+        final Response response = send(target, method, mediaType);
+
+        return response.readEntity(genericType);
+    }
+
     private Response send(
         final WebTarget target,
         final HttpMethod method,
@@ -183,11 +203,10 @@ public class DockerClientImpl
      * (non-Javadoc)
      * @see com.sfragata.docker.client.DockerClient#images()
      */
-    @SuppressWarnings("unchecked")
     @Override
     public List<Image> images() {
 
-        return request(getWebTarget().path(Path.IMAGES.path()).path(Path.JSON.path()), HttpMethod.GET, List.class,
+        return request(getWebTarget().path(Path.IMAGES.path()).path(Path.JSON.path()), HttpMethod.GET, IMAGE_LIST_TYPE,
             MediaType.APPLICATION_JSON_TYPE);
 
     }
@@ -196,7 +215,6 @@ public class DockerClientImpl
      * (non-Javadoc)
      * @see com.sfragata.docker.client.DockerClient#containers()
      */
-    @SuppressWarnings("unchecked")
     @Override
     public List<Container> containers() {
 
@@ -205,7 +223,7 @@ public class DockerClientImpl
          */
         return request(
             getWebTarget().path(Path.CONTAINERS.path()).path(Path.JSON.path())
-                .queryParam(QueryParam.ALL.queryParam(), 1), HttpMethod.GET, List.class,
+                .queryParam(QueryParam.ALL.queryParam(), 1), HttpMethod.GET, CONTAINER_LIST_TYPE,
             MediaType.APPLICATION_JSON_TYPE);
     }
 

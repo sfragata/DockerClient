@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.github.sfragata.docker.client.message;
 
@@ -7,352 +7,419 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * @author sfragata
  *
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ContainerMetaData {
 
-	@JsonProperty("Id")
-	private String id;
+    @JsonProperty("Id")
+    private String id;
 
-	@JsonProperty("Created")
-	private Date created;
+    @JsonProperty("Created")
+    private Date created;
 
-	@JsonProperty("Path")
-	private String path;
+    @JsonProperty("Path")
+    private String path;
 
-	@JsonProperty("Args")
-	private List<String> args;
+    @JsonProperty("Args")
+    private List<String> args;
 
-	@JsonProperty("AppArmorProfile")
-	private String appArmorProfile;
+    @JsonProperty("AppArmorProfile")
+    private String appArmorProfile;
 
-	@JsonProperty("Config")
-	private ContainerConfig config;
+    @JsonProperty("Config")
+    private ContainerConfig config;
 
-	@JsonProperty("HostConfig")
-	private HostConfig hostConfig;
+    @JsonProperty("HostConfig")
+    private HostConfig hostConfig;
 
-	@JsonProperty("State")
-	private ContainerState state;
+    @JsonProperty("State")
+    private ContainerState state;
 
-	@JsonProperty("Image")
-	private String image;
+    @JsonProperty("Image")
+    private String image;
 
-	@JsonProperty("NetworkSettings")
-	private NetworkSettings networkSettings;
+    @JsonProperty("NetworkSettings")
+    private NetworkSettings networkSettings;
 
-	@JsonProperty("ResolvConfPath")
-	private String resolvConfPath;
+    @JsonProperty("ResolvConfPath")
+    private String resolvConfPath;
 
-	@JsonProperty("HostnamePath")
-	private String hostnamePath;
+    @JsonProperty("HostnamePath")
+    private String hostnamePath;
 
-	@JsonProperty("HostsPath")
-	private String hostsPath;
+    @JsonProperty("HostsPath")
+    private String hostsPath;
 
-	@JsonProperty("Name")
-	private String name;
+    @JsonProperty("Name")
+    private String name;
 
-	@JsonProperty("Driver")
-	private String driver;
+    @JsonProperty("Driver")
+    private String driver;
 
-	@JsonProperty("ExecDriver")
-	private String execDriver;
+    @JsonProperty("ExecDriver")
+    private String execDriver;
 
-	@JsonProperty("ProcessLabel")
-	private String processLabel;
+    @JsonProperty("ProcessLabel")
+    private String processLabel;
 
-	@JsonProperty("MountLabel")
-	private String mountLabel;
+    @JsonProperty("MountLabel")
+    private String mountLabel;
 
-	@JsonProperty("Volumes")
-	private Map<String, String> volumes;
+    @JsonProperty("Volumes")
+    private Map<String, String> volumes;
 
-	@JsonProperty("VolumesRW")
-	private Map<String, Boolean> volumesRW;
+    @JsonProperty("VolumesRW")
+    private Map<String, Boolean> volumesRW;
 
-	@JsonProperty("RestartCount")
-	private Integer restartCount;
+    @JsonProperty("RestartCount")
+    private Integer restartCount;
 
-	@JsonProperty("ExecIDs")
-	private String execIds;
+    @JsonProperty("ExecIDs")
+    private String execIds;
 
-	@JsonProperty("LogPath")
-	private String logPath;
+    @JsonProperty("LogPath")
+    private String logPath;
 
-	public String getId() {
-		return id;
-	}
+    public String getId() {
 
-	public Date getCreated() {
-		return created;
-	}
+        return this.id;
+    }
 
-	public String getPath() {
-		return path;
-	}
+    public Date getCreated() {
 
-	public List<String> getArgs() {
-		return args;
-	}
+        return this.created;
+    }
 
-	public String getAppArmorProfile() {
-		return appArmorProfile;
-	}
+    public String getPath() {
 
-	public ContainerConfig getConfig() {
-		return config;
-	}
+        return this.path;
+    }
 
-	public HostConfig getHostConfig() {
-		return hostConfig;
-	}
+    public List<String> getArgs() {
 
-	public ContainerState getState() {
-		return state;
-	}
+        return this.args;
+    }
 
-	public String getImage() {
-		return image;
-	}
+    public String getAppArmorProfile() {
 
-	public NetworkSettings getNetworkSettings() {
-		return networkSettings;
-	}
+        return this.appArmorProfile;
+    }
 
-	public String getResolvConfPath() {
-		return resolvConfPath;
-	}
+    public ContainerConfig getConfig() {
 
-	public String getHostnamePath() {
-		return hostnamePath;
-	}
+        return this.config;
+    }
 
-	public String getHostsPath() {
-		return hostsPath;
-	}
+    public HostConfig getHostConfig() {
 
-	public String getName() {
-		return name;
-	}
+        return this.hostConfig;
+    }
 
-	public String getDriver() {
-		return driver;
-	}
+    public ContainerState getState() {
 
-	public String getExecDriver() {
-		return execDriver;
-	}
+        return this.state;
+    }
 
-	public String getProcessLabel() {
-		return processLabel;
-	}
+    public String getImage() {
 
-	public String getMountLabel() {
-		return mountLabel;
-	}
+        return this.image;
+    }
 
-	public Map<String, String> getVolumes() {
-		return volumes;
-	}
+    public NetworkSettings getNetworkSettings() {
 
-	public Map<String, Boolean> getVolumesRW() {
-		return volumesRW;
-	}
+        return this.networkSettings;
+    }
 
-	public Integer getRestartCount() {
-		return restartCount;
-	}
+    public String getResolvConfPath() {
 
-	public String getExecIds() {
-		return execIds;
-	}
+        return this.resolvConfPath;
+    }
 
-	public String getLogPath() {
-		return logPath;
-	}
+    public String getHostnamePath() {
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((appArmorProfile == null) ? 0 : appArmorProfile.hashCode());
-		result = prime * result + ((args == null) ? 0 : args.hashCode());
-		result = prime * result + ((config == null) ? 0 : config.hashCode());
-		result = prime * result + ((created == null) ? 0 : created.hashCode());
-		result = prime * result + ((driver == null) ? 0 : driver.hashCode());
-		result = prime * result
-				+ ((execDriver == null) ? 0 : execDriver.hashCode());
-		result = prime * result + ((execIds == null) ? 0 : execIds.hashCode());
-		result = prime * result
-				+ ((hostConfig == null) ? 0 : hostConfig.hashCode());
-		result = prime * result
-				+ ((hostnamePath == null) ? 0 : hostnamePath.hashCode());
-		result = prime * result
-				+ ((hostsPath == null) ? 0 : hostsPath.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((image == null) ? 0 : image.hashCode());
-		result = prime * result + ((logPath == null) ? 0 : logPath.hashCode());
-		result = prime * result
-				+ ((mountLabel == null) ? 0 : mountLabel.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result
-				+ ((networkSettings == null) ? 0 : networkSettings.hashCode());
-		result = prime * result + ((path == null) ? 0 : path.hashCode());
-		result = prime * result
-				+ ((processLabel == null) ? 0 : processLabel.hashCode());
-		result = prime * result
-				+ ((resolvConfPath == null) ? 0 : resolvConfPath.hashCode());
-		result = prime * result
-				+ ((restartCount == null) ? 0 : restartCount.hashCode());
-		result = prime * result + ((state == null) ? 0 : state.hashCode());
-		result = prime * result + ((volumes == null) ? 0 : volumes.hashCode());
-		result = prime * result
-				+ ((volumesRW == null) ? 0 : volumesRW.hashCode());
-		return result;
-	}
+        return this.hostnamePath;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		ContainerMetaData other = (ContainerMetaData) obj;
-		if (appArmorProfile == null) {
-			if (other.appArmorProfile != null)
-				return false;
-		} else if (!appArmorProfile.equals(other.appArmorProfile))
-			return false;
-		if (args == null) {
-			if (other.args != null)
-				return false;
-		} else if (!args.equals(other.args))
-			return false;
-		if (config == null) {
-			if (other.config != null)
-				return false;
-		} else if (!config.equals(other.config))
-			return false;
-		if (created == null) {
-			if (other.created != null)
-				return false;
-		} else if (!created.equals(other.created))
-			return false;
-		if (driver == null) {
-			if (other.driver != null)
-				return false;
-		} else if (!driver.equals(other.driver))
-			return false;
-		if (execDriver == null) {
-			if (other.execDriver != null)
-				return false;
-		} else if (!execDriver.equals(other.execDriver))
-			return false;
-		if (execIds == null) {
-			if (other.execIds != null)
-				return false;
-		} else if (!execIds.equals(other.execIds))
-			return false;
-		if (hostConfig == null) {
-			if (other.hostConfig != null)
-				return false;
-		} else if (!hostConfig.equals(other.hostConfig))
-			return false;
-		if (hostnamePath == null) {
-			if (other.hostnamePath != null)
-				return false;
-		} else if (!hostnamePath.equals(other.hostnamePath))
-			return false;
-		if (hostsPath == null) {
-			if (other.hostsPath != null)
-				return false;
-		} else if (!hostsPath.equals(other.hostsPath))
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (image == null) {
-			if (other.image != null)
-				return false;
-		} else if (!image.equals(other.image))
-			return false;
-		if (logPath == null) {
-			if (other.logPath != null)
-				return false;
-		} else if (!logPath.equals(other.logPath))
-			return false;
-		if (mountLabel == null) {
-			if (other.mountLabel != null)
-				return false;
-		} else if (!mountLabel.equals(other.mountLabel))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (networkSettings == null) {
-			if (other.networkSettings != null)
-				return false;
-		} else if (!networkSettings.equals(other.networkSettings))
-			return false;
-		if (path == null) {
-			if (other.path != null)
-				return false;
-		} else if (!path.equals(other.path))
-			return false;
-		if (processLabel == null) {
-			if (other.processLabel != null)
-				return false;
-		} else if (!processLabel.equals(other.processLabel))
-			return false;
-		if (resolvConfPath == null) {
-			if (other.resolvConfPath != null)
-				return false;
-		} else if (!resolvConfPath.equals(other.resolvConfPath))
-			return false;
-		if (restartCount == null) {
-			if (other.restartCount != null)
-				return false;
-		} else if (!restartCount.equals(other.restartCount))
-			return false;
-		if (state == null) {
-			if (other.state != null)
-				return false;
-		} else if (!state.equals(other.state))
-			return false;
-		if (volumes == null) {
-			if (other.volumes != null)
-				return false;
-		} else if (!volumes.equals(other.volumes))
-			return false;
-		if (volumesRW == null) {
-			if (other.volumesRW != null)
-				return false;
-		} else if (!volumesRW.equals(other.volumesRW))
-			return false;
-		return true;
-	}
+    public String getHostsPath() {
 
-	@Override
-	public String toString() {
-		return String
-				.format("ContainerMetaData [id=%s, created=%s, path=%s, args=%s, appArmorProfile=%s, config=%s, hostConfig=%s, state=%s, image=%s, networkSettings=%s, resolvConfPath=%s, hostnamePath=%s, hostsPath=%s, name=%s, driver=%s, execDriver=%s, processLabel=%s, mountLabel=%s, volumes=%s, volumesRW=%s, restartCount=%s, execIds=%s, logPath=%s]",
-						id, created, path, args, appArmorProfile, config,
-						hostConfig, state, image, networkSettings,
-						resolvConfPath, hostnamePath, hostsPath, name, driver,
-						execDriver, processLabel, mountLabel, volumes,
-						volumesRW, restartCount, execIds, logPath);
-	}
+        return this.hostsPath;
+    }
+
+    public String getName() {
+
+        return this.name;
+    }
+
+    public String getDriver() {
+
+        return this.driver;
+    }
+
+    public String getExecDriver() {
+
+        return this.execDriver;
+    }
+
+    public String getProcessLabel() {
+
+        return this.processLabel;
+    }
+
+    public String getMountLabel() {
+
+        return this.mountLabel;
+    }
+
+    public Map<String, String> getVolumes() {
+
+        return this.volumes;
+    }
+
+    public Map<String, Boolean> getVolumesRW() {
+
+        return this.volumesRW;
+    }
+
+    public Integer getRestartCount() {
+
+        return this.restartCount;
+    }
+
+    public String getExecIds() {
+
+        return this.execIds;
+    }
+
+    public String getLogPath() {
+
+        return this.logPath;
+    }
+
+    @Override
+    public int hashCode() {
+
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (this.appArmorProfile == null ? 0 : this.appArmorProfile.hashCode());
+        result = prime * result + (this.args == null ? 0 : this.args.hashCode());
+        result = prime * result + (this.config == null ? 0 : this.config.hashCode());
+        result = prime * result + (this.created == null ? 0 : this.created.hashCode());
+        result = prime * result + (this.driver == null ? 0 : this.driver.hashCode());
+        result = prime * result + (this.execDriver == null ? 0 : this.execDriver.hashCode());
+        result = prime * result + (this.execIds == null ? 0 : this.execIds.hashCode());
+        result = prime * result + (this.hostConfig == null ? 0 : this.hostConfig.hashCode());
+        result = prime * result + (this.hostnamePath == null ? 0 : this.hostnamePath.hashCode());
+        result = prime * result + (this.hostsPath == null ? 0 : this.hostsPath.hashCode());
+        result = prime * result + (this.id == null ? 0 : this.id.hashCode());
+        result = prime * result + (this.image == null ? 0 : this.image.hashCode());
+        result = prime * result + (this.logPath == null ? 0 : this.logPath.hashCode());
+        result = prime * result + (this.mountLabel == null ? 0 : this.mountLabel.hashCode());
+        result = prime * result + (this.name == null ? 0 : this.name.hashCode());
+        result = prime * result + (this.networkSettings == null ? 0 : this.networkSettings.hashCode());
+        result = prime * result + (this.path == null ? 0 : this.path.hashCode());
+        result = prime * result + (this.processLabel == null ? 0 : this.processLabel.hashCode());
+        result = prime * result + (this.resolvConfPath == null ? 0 : this.resolvConfPath.hashCode());
+        result = prime * result + (this.restartCount == null ? 0 : this.restartCount.hashCode());
+        result = prime * result + (this.state == null ? 0 : this.state.hashCode());
+        result = prime * result + (this.volumes == null ? 0 : this.volumes.hashCode());
+        result = prime * result + (this.volumesRW == null ? 0 : this.volumesRW.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(
+        final Object obj) {
+
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final ContainerMetaData other = (ContainerMetaData) obj;
+        if (this.appArmorProfile == null) {
+            if (other.appArmorProfile != null) {
+                return false;
+            }
+        } else if (!this.appArmorProfile.equals(other.appArmorProfile)) {
+            return false;
+        }
+        if (this.args == null) {
+            if (other.args != null) {
+                return false;
+            }
+        } else if (!this.args.equals(other.args)) {
+            return false;
+        }
+        if (this.config == null) {
+            if (other.config != null) {
+                return false;
+            }
+        } else if (!this.config.equals(other.config)) {
+            return false;
+        }
+        if (this.created == null) {
+            if (other.created != null) {
+                return false;
+            }
+        } else if (!this.created.equals(other.created)) {
+            return false;
+        }
+        if (this.driver == null) {
+            if (other.driver != null) {
+                return false;
+            }
+        } else if (!this.driver.equals(other.driver)) {
+            return false;
+        }
+        if (this.execDriver == null) {
+            if (other.execDriver != null) {
+                return false;
+            }
+        } else if (!this.execDriver.equals(other.execDriver)) {
+            return false;
+        }
+        if (this.execIds == null) {
+            if (other.execIds != null) {
+                return false;
+            }
+        } else if (!this.execIds.equals(other.execIds)) {
+            return false;
+        }
+        if (this.hostConfig == null) {
+            if (other.hostConfig != null) {
+                return false;
+            }
+        } else if (!this.hostConfig.equals(other.hostConfig)) {
+            return false;
+        }
+        if (this.hostnamePath == null) {
+            if (other.hostnamePath != null) {
+                return false;
+            }
+        } else if (!this.hostnamePath.equals(other.hostnamePath)) {
+            return false;
+        }
+        if (this.hostsPath == null) {
+            if (other.hostsPath != null) {
+                return false;
+            }
+        } else if (!this.hostsPath.equals(other.hostsPath)) {
+            return false;
+        }
+        if (this.id == null) {
+            if (other.id != null) {
+                return false;
+            }
+        } else if (!this.id.equals(other.id)) {
+            return false;
+        }
+        if (this.image == null) {
+            if (other.image != null) {
+                return false;
+            }
+        } else if (!this.image.equals(other.image)) {
+            return false;
+        }
+        if (this.logPath == null) {
+            if (other.logPath != null) {
+                return false;
+            }
+        } else if (!this.logPath.equals(other.logPath)) {
+            return false;
+        }
+        if (this.mountLabel == null) {
+            if (other.mountLabel != null) {
+                return false;
+            }
+        } else if (!this.mountLabel.equals(other.mountLabel)) {
+            return false;
+        }
+        if (this.name == null) {
+            if (other.name != null) {
+                return false;
+            }
+        } else if (!this.name.equals(other.name)) {
+            return false;
+        }
+        if (this.networkSettings == null) {
+            if (other.networkSettings != null) {
+                return false;
+            }
+        } else if (!this.networkSettings.equals(other.networkSettings)) {
+            return false;
+        }
+        if (this.path == null) {
+            if (other.path != null) {
+                return false;
+            }
+        } else if (!this.path.equals(other.path)) {
+            return false;
+        }
+        if (this.processLabel == null) {
+            if (other.processLabel != null) {
+                return false;
+            }
+        } else if (!this.processLabel.equals(other.processLabel)) {
+            return false;
+        }
+        if (this.resolvConfPath == null) {
+            if (other.resolvConfPath != null) {
+                return false;
+            }
+        } else if (!this.resolvConfPath.equals(other.resolvConfPath)) {
+            return false;
+        }
+        if (this.restartCount == null) {
+            if (other.restartCount != null) {
+                return false;
+            }
+        } else if (!this.restartCount.equals(other.restartCount)) {
+            return false;
+        }
+        if (this.state == null) {
+            if (other.state != null) {
+                return false;
+            }
+        } else if (!this.state.equals(other.state)) {
+            return false;
+        }
+        if (this.volumes == null) {
+            if (other.volumes != null) {
+                return false;
+            }
+        } else if (!this.volumes.equals(other.volumes)) {
+            return false;
+        }
+        if (this.volumesRW == null) {
+            if (other.volumesRW != null) {
+                return false;
+            }
+        } else if (!this.volumesRW.equals(other.volumesRW)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+
+        return String
+            .format(
+                "ContainerMetaData [id=%s, created=%s, path=%s, args=%s, appArmorProfile=%s, config=%s, hostConfig=%s, state=%s, image=%s, networkSettings=%s, resolvConfPath=%s, hostnamePath=%s, hostsPath=%s, name=%s, driver=%s, execDriver=%s, processLabel=%s, mountLabel=%s, volumes=%s, volumesRW=%s, restartCount=%s, execIds=%s, logPath=%s]",
+                this.id, this.created, this.path, this.args, this.appArmorProfile, this.config, this.hostConfig,
+                this.state, this.image, this.networkSettings, this.resolvConfPath, this.hostnamePath, this.hostsPath,
+                this.name, this.driver, this.execDriver, this.processLabel, this.mountLabel, this.volumes,
+                this.volumesRW, this.restartCount, this.execIds, this.logPath);
+    }
 
 }
