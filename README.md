@@ -1,7 +1,9 @@
 # DockerClient
 A java client to access docker process rest api
 
-To use that project you must first enable the TCP/IP
+The default constructor connects to local docker (unix:///var/run/docker.sock)
+
+If you want to connect to a remote docker (http) you must first enable the TCP/IP
 
 Add the line below on */etc/default/docker*
 ```
