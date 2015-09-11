@@ -34,7 +34,6 @@ public class Image {
     @JsonProperty("Size")
     private Long size;
 
-    @JsonIgnoreProperties(ignoreUnknown = true)
     @JsonProperty("VirtualSize")
     private Long virtualSize;
 
@@ -96,7 +95,6 @@ public class Image {
         this.size = size;
     }
 
-    @JsonIgnoreProperties(ignoreUnknown = true)
     public Long getVirtualSize() {
 
         return this.virtualSize;
@@ -106,6 +104,17 @@ public class Image {
         final Long virtualSize) {
 
         this.virtualSize = virtualSize;
+    }
+
+    public List<String> getRepoDigests() {
+
+        return this.repoDigests;
+    }
+
+    public void setRepoDigests(
+        final List<String> repoDigests) {
+
+        this.repoDigests = repoDigests;
     }
 
     @Override
